@@ -1,0 +1,20 @@
+#!/bin/bash
+logger "IP: $2"
+logger "KEY: $4"
+logger "USER: $6"
+IP="$2"
+KEY="$4"
+USER="$6"
+TIMEOUT="$8"
+
+
+VAR=$(ssh "$USER"@"$IP" -i "$KEY")
+if test "$VAR" = ""; then
+    exit 0
+else
+    exit 1
+fi
+
+exit 0
+
+
